@@ -3,12 +3,16 @@ let app = express();
 
 app.set('view engine', 'ejs');
 
-app.get('/tecnologia', (req, resp) => {
-  resp.render('secao/tecnologia');
+app.get('/', (req, resp) => {
+  resp.render('home/index');
 });
 
-app.get('/', (req, resp) => {
-  resp.send('<html><body>Portal de notícias</body><html>');
+app.get('/noticias', (req, resp) => {
+  resp.render('noticias/noticias');
+});
+
+app.get('/form_add_noticia', (req, resp) => {
+  resp.render('admin/form_add_noticia');
 });
 
 app.listen(3000, () => {
