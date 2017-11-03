@@ -10,8 +10,8 @@ module.exports = (app) => {
     });
 
     connection.query('select * from noticias', (error, result) => {
-      resp.send(result);
+      resp.render('noticias/noticias', {noticias : result});
     });
-    // resp.render('noticias/noticias');
+    
   });
 };
