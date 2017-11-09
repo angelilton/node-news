@@ -1,20 +1,23 @@
-function Noticias(connection) {
-  this._connection = connection;
-}
-
-Noticias.prototype.getNoticias = (callback) => {
+class NoticiasDAO {
+  constructor(connection){
+    this._connection = connection;
+  }
+  
+getNoticias(callback) {
   this._connection.query('select * from noticias', callback);
 }
 
-Noticias.prototype.getNoticia = (callback) => {
+getNoticia (callback) {
   this._connection.query('select * from noticias where id_noticia = 2', callback);
 }
 
-Noticias.prototype.salvarNoticia = (noticia, callback) => {
+salvarNoticia (noticia, callback) {
   this._connection.query('insert into noticias set ? ', noticia, callback);
 }
 
+}
+
 module.exports = () => {
-  return Noticias;
+  return NoticiasDAO;
 }
 
